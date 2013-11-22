@@ -35,8 +35,8 @@ cp %{SOURCE2} LICENSE
 
 
 %install
-# lpf-setup-pkg [eula] <topdir> <specfile> [sources...]
-/usr/share/lpf/scripts/lpf-setup-pkg %{buildroot} %{SOURCE0}
+# lpf-setup-pkg [-a arch] [-e eula] <topdir> <specfile> [sources...]
+/usr/share/lpf/scripts/lpf-setup-pkg -a i686 %{buildroot} %{SOURCE0}
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
@@ -45,6 +45,7 @@ DISPLAY= lpf scan 2>/dev/null || :
 
 %postun
 DISPLAY= lpf scan 2>/dev/null || :
+/usr/share/lpf/scripts/lpf-pkg-postun %{target-pkg}
 
 
 %files
@@ -60,6 +61,8 @@ DISPLAY= lpf scan 2>/dev/null || :
 - Remove skype-wrapper; is generated inside the spec file.
 - Use description as close as possible to bundled spec file.
 - Format README file.
+- Added new arch parameter in lpf-setup-pkg.
+- Added new command to the postun section.
 
 * Wed Nov 6 2013 Alec Leamas <leamas@nowhere.net> - 4.2.0.11-4
 - Unset DISPLAY in snippets.
