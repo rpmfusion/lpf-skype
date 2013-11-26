@@ -47,6 +47,8 @@ DISPLAY= lpf scan 2>/dev/null || :
 DISPLAY= lpf scan 2>/dev/null || :
 /usr/share/lpf/scripts/lpf-pkg-postun %{target-pkg}
 
+%triggerpostun -- %{target_pkg}
+lpf scan-removal %{target_pkg} &>/dev/null || :
 
 %files
 %doc README LICENSE
@@ -62,7 +64,7 @@ DISPLAY= lpf scan 2>/dev/null || :
 - Use description as close as possible to bundled spec file.
 - Format README file.
 - Added new arch parameter in lpf-setup-pkg.
-- Added new command to the postun section.
+- Added new commands to the postun/triggerpostun sections.
 
 * Wed Nov 6 2013 Alec Leamas <leamas@nowhere.net> - 4.2.0.11-4
 - Unset DISPLAY in snippets.
