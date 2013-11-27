@@ -3,7 +3,7 @@
 
 Name:           lpf-skype
 Version:        4.2.0.11
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Skype Messaging and Telephony Client package bootstrap
 
 License:        MIT
@@ -44,11 +44,14 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 DISPLAY= lpf scan 2>/dev/null || :
 
 %postun
-DISPLAY= lpf scan 2>/dev/null || :
-/usr/share/lpf/scripts/lpf-pkg-postun %{target-pkg}
+if [ "$1" = '0' ]; then
+    /usr/share/lpf/scripts/lpf-pkg-postun %{target_pkg} &>/dev/null || :
+fi
 
 %triggerpostun -- %{target_pkg}
-lpf scan-removal %{target_pkg} &>/dev/null || :
+if [ "$2" = '0' ]; then
+    lpf scan-removal %{target_pkg} &>/dev/null || :
+fi
 
 %files
 %doc README LICENSE
@@ -59,6 +62,9 @@ lpf scan-removal %{target_pkg} &>/dev/null || :
 
 
 %changelog
+* Wed Nov 27 2013 Alec Leamas <leamas@nowhere.net> - 4.2.0.11-6
+- Updating %%postun and %%triggerun scriptlets.
+
 * Thu Nov 21 2013 Simone Caronni <negativo17@gmail.com> - 4.2.0.11-5
 - Remove skype-wrapper; is generated inside the spec file.
 - Use description as close as possible to bundled spec file.
