@@ -3,7 +3,7 @@
 
 Name:           lpf-skype
 Version:        4.2.0.11
-Release:        7%{?dist}
+Release:        6%{?dist}
 Summary:        Skype Messaging and Telephony Client package bootstrap
 
 License:        MIT
@@ -62,9 +62,6 @@ fi
 
 
 %changelog
-* Wed Nov 27 2013 leamas.alec@gmail.com - 4.2.0.11-7
-- ACL test
-
 * Wed Nov 27 2013 Alec Leamas <leamas@nowhere.net> - 4.2.0.11-6
 - Updating %%postun and %%triggerun scriptlets.
 
