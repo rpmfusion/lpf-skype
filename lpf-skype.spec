@@ -15,8 +15,8 @@ Source1:        README
 Source2:        LICENSE
 
 BuildRequires:  desktop-file-utils
-BuildRequires:  lpf > 0-10
-Requires:       lpf > 0-10
+BuildRequires:  lpf >= 0-11
+Requires:       lpf >= 0-11
 
 BuildArch:      %{ix86}
 
