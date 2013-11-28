@@ -3,7 +3,7 @@
 
 Name:           lpf-skype
 Version:        4.2.0.11
-Release:        7%{?dist}
+Release:        8%{?dist}
 Summary:        Skype Messaging and Telephony Client package bootstrap
 
 License:        MIT
@@ -15,8 +15,8 @@ Source1:        README
 Source2:        LICENSE
 
 BuildRequires:  desktop-file-utils
-BuildRequires:  lpf >= 0.11
-Requires:       lpf >= 0.11
+BuildRequires:  lpf >= 0-11
+Requires:       lpf >= 0-11
 
 BuildArch:      %{ix86}
 
@@ -62,6 +62,9 @@ fi
 
 
 %changelog
+* Thu Nov 28 2013 leamas.alec@gmail.com - 4.2.0.11-8
+- Fixing B/BR as of -7.
+
 * Thu Nov 28 2013  Alec Leamas <leamas@nowhere.net> - 4.2.0.11-7
 - Change B/BR on lpf to require  >= 0.11.
 
