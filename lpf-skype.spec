@@ -3,7 +3,8 @@
 
 Name:           lpf-skype
 Version:        4.2.0.11
-Release:        9%{?dist}
+Release:        10%{?dist}
+
 Summary:        Skype Messaging and Telephony Client package bootstrap
 
 License:        MIT
@@ -15,7 +16,7 @@ Source1:        README
 Source2:        LICENSE
 
 BuildRequires:  desktop-file-utils
-BuildRequires:  lpf >= 0-11
+BuildRequires:  lpf = 0-11
 Requires:       lpf >= 0-11
 
 
@@ -61,6 +62,9 @@ fi
 
 
 %changelog
+* Wed Dec 04 2013 Simone Caronni <negativo17@gmail.com> - 4.2.0.11-10
+- Making build require 0-11 for now.
+
 * Wed Dec 04 2013 Simone Caronni <negativo17@gmail.com> - 4.2.0.11-9
 - Remove double BuildArch, add ExclusiveArch.
 
