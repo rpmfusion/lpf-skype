@@ -1,9 +1,11 @@
+%define debug_package %{nil}
+
 # %%global will not work here, lazy evaluation needed.
 %define         target_pkg %(t=%{name}; echo ${t#lpf-})
 
 Name:           lpf-skype
 Version:        4.2.0.11
-Release:        10%{?dist}
+Release:        11%{?dist}
 
 Summary:        Skype Messaging and Telephony Client package bootstrap
 
@@ -16,14 +18,15 @@ Source1:        README
 Source2:        LICENSE
 
 BuildRequires:  desktop-file-utils
-BuildRequires:  lpf = 0-11
-Requires:       lpf >= 0-11
+BuildRequires:  lpf >= 0.13
+Requires:       lpf >= 0.13
 
 
 %description
 Bootstrap package allowing the lpf system to build the non-redistributable skype
 package.
 
+The skype package is available only for i686 systems.
 
 %prep
 %setup -cT
@@ -62,6 +65,9 @@ fi
 
 
 %changelog
+* Wed Dec 04 2013 Simone Caronni <negativo17@gmail.com> - 4.2.0.11-11
+- Review fixes.
+
 * Wed Dec 04 2013 Simone Caronni <negativo17@gmail.com> - 4.2.0.11-10
 - Making build require 0-11 for now.
 
