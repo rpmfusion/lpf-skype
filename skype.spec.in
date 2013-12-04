@@ -1,5 +1,7 @@
-%define debug_package %{nil}
-%define __spec_install_post /usr/lib/rpm/brp-compress
+# Binary package, no debuginfo should be generated
+%global debug_package %{nil}
+# Avoid binary manipulation or the main executable gets corrupted
+%global __spec_install_post /usr/lib/rpm/brp-compress
 
 Name:           skype
 Version:        4.2.0.11
@@ -27,11 +29,12 @@ people also use Skype to make low-cost calls to landlines and mobiles.
 
 %package data
 Summary:        Skype Messaging and Telephony Client data files
-BuildArch:		noarch
+BuildArch:      noarch
 Requires:       %{name} = %{version}-%{release}
 
 %description data
-This package contains icons, sounds and support files for the main Skype package.
+This package contains icons, sounds and support files for the main Skype
+package.
 
 %prep
 %setup -q
@@ -39,6 +42,7 @@ cat << EOF > %{name}-wrapper
 #!/bin/sh
 PULSE_LATENCY_MSEC=30 skype-bin
 EOF
+sed -i 's/\r$//' LICENSE
 
 %build
 # Nothing to build
@@ -70,19 +74,20 @@ desktop-file-install --dir=%{buildroot}%{_datadir}/applications %{name}.desktop
 
 %post data
 touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
-update-mime-database /usr/share/mime &> /dev/null || :
+/usr/bin/update-desktop-database &> /dev/null || :
 
 %postun data
 if [ $1 -eq 0 ] ; then
     touch --no-create %{_datadir}/icons/hicolor &>/dev/null
     gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 fi
-update-mime-database /usr/share/mime &> /dev/null || :
+/usr/bin/update-desktop-database &> /dev/null || :
 
 %posttrans data
 gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 %files
+# Always replace the prelink information, the binary gets corrupted otherwise
 %config %{_sysconfdir}/prelink.conf.d/%{name}-%{_arch}.conf
 %{_bindir}/%{name}
 %if 0%{?fedora} >= 20
@@ -91,6 +96,7 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 %files data
 %doc LICENSE README third-party_attributions.txt
+# DBus information comes from upstream
 %config %{_sysconfdir}/dbus-1/system.d/%{name}.conf
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
