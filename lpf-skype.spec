@@ -18,8 +18,8 @@ Source1:        README
 Source2:        LICENSE
 
 BuildRequires:  desktop-file-utils
-BuildRequires:  lpf >= 0.13
-Requires:       lpf >= 0.13
+BuildRequires:  lpf >= 0-13
+Requires:       lpf >= 0-13
 
 
 %description
@@ -65,6 +65,9 @@ fi
 
 
 %changelog
+* Fri Dec 06 2013 Alec Leamas <leamas@nowhere.net> - 4.2.0.11-11
+- Fix lpf versioned dependency.
+
 * Wed Dec 04 2013 Simone Caronni <negativo17@gmail.com> - 4.2.0.11-11
 - Review fixes.
 
@@ -74,7 +77,7 @@ fi
 * Wed Dec 04 2013 Simone Caronni <negativo17@gmail.com> - 4.2.0.11-9
 - Remove double BuildArch, add ExclusiveArch.
 
-* Thu Nov 28 2013 leamas.alec@gmail.com - 4.2.0.11-8
+* Thu Nov 28 2013  Alec Leamas <leamas@nowhere.net> - 4.2.0.11-8
 - Fixing B/BR as of -7.
 
 * Thu Nov 28 2013  Alec Leamas <leamas@nowhere.net> - 4.2.0.11-7
