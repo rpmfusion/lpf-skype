@@ -5,7 +5,7 @@
 
 Name:           lpf-skype
 Version:        4.2.0.11
-Release:        11%{?dist}
+Release:        12%{?dist}
 
 Summary:        Skype Messaging and Telephony Client package bootstrap
 
@@ -65,6 +65,9 @@ fi
 
 
 %changelog
+* Fri Dec 27 2013 leamas@nowhere.net - 4.2.0.11-12
+- Rebuild after F20 branching
+
 * Fri Dec 06 2013 Alec Leamas <leamas@nowhere.net> - 4.2.0.11-11
 - Fix lpf versioned dependency.
 
