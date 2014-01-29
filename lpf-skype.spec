@@ -4,8 +4,8 @@
 %define         target_pkg %(t=%{name}; echo ${t#lpf-})
 
 Name:           lpf-skype
-Version:        4.2.0.11
-Release:        12%{?dist}
+Version:        4.2.0.13
+Release:        1%{?dist}
 
 Summary:        Skype Messaging and Telephony Client package bootstrap
 
@@ -65,6 +65,9 @@ fi
 
 
 %changelog
+* Wed Jan 29 2014 Simone Caronni <negativo17@gmail.com> - 4.2.0.13-1
+- Update to 4.2.0.13.
+
 * Fri Dec 27 2013 leamas@nowhere.net - 4.2.0.11-12
 - Rebuild after F20 branching
 
