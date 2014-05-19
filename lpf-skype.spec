@@ -5,7 +5,7 @@
 
 Name:           lpf-skype
 Version:        4.2.0.13
-Release:        1%{?dist}
+Release:        3%{?dist}
 
 Summary:        Skype Messaging and Telephony Client package bootstrap
 
@@ -65,6 +65,10 @@ fi
 
 
 %changelog
+* Mon May 19 2014 Simone Caronni <negativo17@gmail.com> - 4.2.0.13-3
+- Allow command line parameters to be passed to wrapper.
+- Fix desktop file Exec line.
+
 * Wed Jan 29 2014 Simone Caronni <negativo17@gmail.com> - 4.2.0.13-1
 - Update to 4.2.0.13.
 
