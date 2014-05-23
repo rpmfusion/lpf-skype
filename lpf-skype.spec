@@ -5,7 +5,7 @@
 
 Name:           lpf-skype
 Version:        4.2.0.13
-Release:        3%{?dist}
+Release:        4%{?dist}
 
 Summary:        Skype Messaging and Telephony Client package bootstrap
 
@@ -14,8 +14,9 @@ URL:            http://github.com/leamas/lpf
 Group:          Development/Tools
 ExclusiveArch:  %{ix86}
 Source0:        skype.spec.in
-Source1:        README
-Source2:        LICENSE
+Source1:        skype-wrapper
+Source2:        README
+Source3:        LICENSE
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  lpf >= 0-13
@@ -30,8 +31,7 @@ The skype package is available only for i686 systems.
 
 %prep
 %setup -cT
-cp %{SOURCE1} README
-cp %{SOURCE2} LICENSE
+cp %{SOURCE1} %{SOURCE2} %{SOURCE3} .
 
 
 %build
@@ -39,7 +39,7 @@ cp %{SOURCE2} LICENSE
 
 %install
 # lpf-setup-pkg [-a arch] [-e eula] <topdir> <specfile> [sources...]
-/usr/share/lpf/scripts/lpf-setup-pkg -a i686 %{buildroot} %{SOURCE0}
+/usr/share/lpf/scripts/lpf-setup-pkg -a i686 %{buildroot} %{SOURCE0} %{SOURCE1}
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
@@ -65,6 +65,9 @@ fi
 
 
 %changelog
+* Fri May 23 2014 Simone Caronni <negativo17@gmail.com> - 4.2.0.13-4
+- Fix installation of skype-wrapper.
+
 * Mon May 19 2014 Simone Caronni <negativo17@gmail.com> - 4.2.0.13-3
 - Allow command line parameters to be passed to wrapper.
 - Fix desktop file Exec line.
