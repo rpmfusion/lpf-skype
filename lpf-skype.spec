@@ -4,8 +4,8 @@
 %define         target_pkg %(t=%{name}; echo ${t#lpf-})
 
 Name:           lpf-skype
-Version:        4.2.0.13
-Release:        4%{?dist}
+Version:        4.3.0.37
+Release:        1%{?dist}
 
 Summary:        Skype Messaging and Telephony Client package bootstrap
 
@@ -65,6 +65,9 @@ fi
 
 
 %changelog
+* Thu Jun 19 2014 Simone Caronni <negativo17@gmail.com> - 4.3.0.37-1
+- Update to 4.3.0.37.
+
 * Fri May 23 2014 Simone Caronni <negativo17@gmail.com> - 4.2.0.13-4
 - Fix installation of skype-wrapper.
 
