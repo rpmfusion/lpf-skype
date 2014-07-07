@@ -4,8 +4,8 @@
 %global __spec_install_post /usr/lib/rpm/brp-compress
 
 Name:           skype
-Version:        4.2.0.13
-Release:        3%{?dist}
+Version:        4.3.0.37
+Release:        1%{?dist}
 Summary:        Skype Messaging and Telephony Client
 
 License:        Skype End User License Agreement
@@ -108,6 +108,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_datadir}/%{name}
 
 %changelog
+* Wed Jun 18 2014 Simone Caronni <negativo17@gmail.com> - 4.3.0.37-1
+- Update to 4.3.0.37.
+
 * Mon May 19 2014 Simone Caronni <negativo17@gmail.com> - 4.2.0.13-3
 - Allow command line parameters to be passed to wrapper.
 
