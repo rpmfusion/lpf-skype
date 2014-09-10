@@ -5,15 +5,14 @@
 
 Name:           skype
 Version:        4.3.0.37
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Skype Messaging and Telephony Client
 
 License:        Skype End User License Agreement
 URL:            http://www.skype.com/products/skype/linux/
 # Download at:
-# http://www.skype.com/intl/en/get-skype/on-your-computer/linux/downloading.dynamic
+# http://www.skype.com/go/getskype-linux-beta-dynamic
 Source0:        http://download.skype.com/linux/%{name}-%{version}.tar.bz2
-Source1:        %{name}-wrapper
 
 BuildRequires:  desktop-file-utils
 Requires:       hicolor-icon-theme
@@ -48,21 +47,8 @@ sed -i 's/\r$//' LICENSE
 %install
 mkdir -p %{buildroot}%{_sysconfdir}/prelink.conf.d/
 
-
-# Fedora 20+ needs a wrapper for PulseAudio latency
-%if 0%{?fedora} >= 20 || 0%{?rhel} >= 7
-
-install -p -D -m 755 %{SOURCE1} %{buildroot}%{_bindir}/%{name}
-install -p -D -m 655 %{name} %{buildroot}%{_bindir}/%{name}-bin
-echo "-b %{_bindir}/skype-bin" > %{buildroot}%{_sysconfdir}/prelink.conf.d/%{name}-%{_arch}.conf
-sed -i -e 's/Exec=env PULSE_LATENCY_MSEC=60 skype %U/Exec=env PULSE_LATENCY_MSEC=30 skype-bin %U/g' %{name}.desktop
-
-%else
-
 install -p -D -m 655 %{name} %{buildroot}%{_bindir}/%{name}
 echo "-b %{_bindir}/skype" > %{buildroot}%{_sysconfdir}/prelink.conf.d/%{name}-%{_arch}.conf
-
-%endif
 
 install -p -D -m 644 %{name}.conf %{buildroot}%{_sysconfdir}/dbus-1/system.d/%{name}.conf
 
@@ -95,9 +81,6 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 # Always replace the prelink information, the binary gets corrupted otherwise
 %config %{_sysconfdir}/prelink.conf.d/%{name}-%{_arch}.conf
 %{_bindir}/%{name}
-%if 0%{?fedora} >= 20
-%{_bindir}/%{name}-bin
-%endif
 
 %files data
 %doc LICENSE README third-party_attributions.txt
@@ -108,6 +91,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_datadir}/%{name}
 
 %changelog
+* Tue Aug 26 2014 Simone Caronni <negativo17@gmail.com> - 4.3.0.37-2
+- Latency fix no longer required.
+
 * Wed Jun 18 2014 Simone Caronni <negativo17@gmail.com> - 4.3.0.37-1
 - Update to 4.3.0.37.
 
