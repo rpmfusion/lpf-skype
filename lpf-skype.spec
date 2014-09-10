@@ -14,9 +14,8 @@ URL:            http://github.com/leamas/lpf
 Group:          Development/Tools
 ExclusiveArch:  %{ix86}
 Source0:        skype.spec.in
-Source1:        skype-wrapper
-Source2:        README
-Source3:        LICENSE
+Source1:        README
+Source2:        LICENSE
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  lpf >= 0-13
@@ -31,7 +30,7 @@ The skype package is available only for i686 systems.
 
 %prep
 %setup -cT
-cp %{SOURCE1} %{SOURCE2} %{SOURCE3} .
+cp %{SOURCE1} %{SOURCE2} .
 
 
 %build
