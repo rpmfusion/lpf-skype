@@ -5,7 +5,7 @@
 
 Name:           lpf-skype
 Version:        4.3.0.37
-Release:        1%{?dist}
+Release:        2%{?dist}
 
 Summary:        Skype Messaging and Telephony Client package bootstrap
 
@@ -65,6 +65,9 @@ fi
 
 
 %changelog
+* Wed Sep 10 2014 Simone Caronni <negativo17@gmail.com> - 4.3.0.37-2
+- Remove wrapper; no longer needed.
+
 * Thu Jun 19 2014 Simone Caronni <negativo17@gmail.com> - 4.3.0.37-1
 - Update to 4.3.0.37.
 
