@@ -5,7 +5,7 @@
 
 Name:           skype
 Version:        4.3.0.37
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Skype Messaging and Telephony Client
 
 License:        Skype End User License Agreement
@@ -18,7 +18,7 @@ BuildRequires:  desktop-file-utils
 Requires:       hicolor-icon-theme
 Requires:       %{name}-data = %{version}-%{release}
 # Needed for the welcome screen, not pulled in by dependencies
-Requires:       webkitgtk%{_isa}
+#Requires:       webkitgtk%{_isa}
 
 ExclusiveArch:  %{ix86}
 
@@ -91,6 +91,10 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_datadir}/%{name}
 
 %changelog
+* Thu Sep 22 2016 Sérgio Basto <sergio@serjux.com> - 4.3.0.37-3
+- Skype doesn't requires webkitgtk, only qtwebkit, also part of removal
+  webkitgtk and webkitgtk3.
+
 * Tue Aug 26 2014 Simone Caronni <negativo17@gmail.com> - 4.3.0.37-2
 - Latency fix no longer required.
 

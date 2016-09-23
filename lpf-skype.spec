@@ -5,7 +5,7 @@
 
 Name:           lpf-skype
 Version:        4.3.0.37
-Release:        2%{?dist}
+Release:        3%{?dist}
 
 Summary:        Skype Messaging and Telephony Client package bootstrap
 
@@ -64,6 +64,10 @@ fi
 
 
 %changelog
+* Thu Sep 22 2016 Sérgio Basto <sergio@serjux.com> - 4.3.0.37-3
+- Skype doesn't requires webkitgtk, only qtwebkit, also part of removal
+  webkitgtk and webkitgtk3.
+
 * Wed Sep 10 2014 Simone Caronni <negativo17@gmail.com> - 4.3.0.37-2
 - Remove wrapper; no longer needed.
 
