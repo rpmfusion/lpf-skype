@@ -5,7 +5,7 @@
 
 Name:           lpf-skype
 Version:        4.3.0.37
-Release:        3%{?dist}
+Release:        4%{?dist}
 
 Summary:        Skype Messaging and Telephony Client package bootstrap
 
@@ -64,6 +64,9 @@ fi
 
 
 %changelog
+* Sun Mar 26 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 4.3.0.37-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
+
 * Thu Sep 22 2016 Sérgio Basto <sergio@serjux.com> - 4.3.0.37-3
 - Skype doesn't requires webkitgtk, only qtwebkit, also part of removal
   webkitgtk and webkitgtk3.
