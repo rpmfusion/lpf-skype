@@ -5,7 +5,7 @@
 
 Name:           lpf-skype
 Version:        4.3.0.37
-Release:        4%{?dist}
+Release:        5%{?dist}
 
 Summary:        Skype Messaging and Telephony Client package bootstrap
 
@@ -64,6 +64,9 @@ fi
 
 
 %changelog
+* Thu Aug 31 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 4.3.0.37-5
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
+
 * Sun Mar 26 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 4.3.0.37-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
 
